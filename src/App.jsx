@@ -34,14 +34,20 @@ const CARDS = [
     name: "C6 Black",
     banco: "C6 Bank",
     anuidade: 600,
-    gastoNecessario: 3500,
-    investNecessario: 20000,
+    gastoElegibilidade: null,
+    gastoIsencao: 3500,
+    rendaElegibilidade: null,
+    rendaIsencao: null,
+    investElegibilidade: 20000,
+    investIsencao: 20000,
     tipo: "pontos",
     programa: "atomos",
     pontosPorDolar: 2.5,
     acessosVIP: 2,
-    seguro: 150,
-    outros: 50,
+    redeTier: "mastercard_black",
+    seguro: 220,
+    outros: 100,
+    seguroOutrosDesc: "Seguro viagem internacional (assistência médica, bagagem extraviada) e proteção de compras / garantia estendida, no padrão dos cartões Visa Infinite / Mastercard Black. Inclui também assistente pessoal 24h e cartão adicional gratuito.",
     obs: "Isenção da anuidade alcançada só com o gasto mensal informado. Pontos Átomos: 2,5/US$ no crédito (base, sem exigências extras).",
   },
   {
@@ -49,14 +55,20 @@ const CARDS = [
     name: "C6 Carbon",
     banco: "C6 Bank",
     anuidade: 1176,
-    gastoNecessario: 8000,
-    investNecessario: 50000,
+    gastoElegibilidade: null,
+    gastoIsencao: 8000,
+    rendaElegibilidade: null,
+    rendaIsencao: null,
+    investElegibilidade: 50000,
+    investIsencao: 50000,
     tipo: "pontos",
     programa: "atomos",
     pontosPorDolar: 2.5,
     acessosVIP: 4,
-    seguro: 300,
+    redeTier: "mastercard_black",
+    seguro: 220,
     outros: 100,
+    seguroOutrosDesc: "Seguro viagem internacional (assistência médica, bagagem extraviada) e proteção de compras / garantia estendida, no padrão dos cartões Visa Infinite / Mastercard Black. Inclui também assistente pessoal 24h e cartão adicional gratuito.",
     obs: "Meta de gasto (R$ 8 mil/mês) fica acima do perfil — isenção via investimento em CDB próprio. Pontos Átomos sobem a 2,7-3,5/US$ só com R$ 250 mil a R$ 1 milhão investidos (fora do orçamento de R$ 200 mil).",
   },
   {
@@ -64,14 +76,20 @@ const CARDS = [
     name: "BTG Black",
     banco: "BTG Pactual",
     anuidade: 480,
-    gastoNecessario: 4000,
-    investNecessario: 40000,
+    gastoElegibilidade: null,
+    gastoIsencao: 4000,
+    rendaElegibilidade: null,
+    rendaIsencao: null,
+    investElegibilidade: 40000,
+    investIsencao: 40000,
     tipo: "pontos",
     programa: "livelo",
     pontosPorDolar: 2.2,
     acessosVIP: 4,
-    seguro: 150,
-    outros: 80,
+    redeTier: "mastercard_black",
+    seguro: 220,
+    outros: 100,
+    seguroOutrosDesc: "Seguro viagem internacional (assistência médica, bagagem extraviada) e proteção de compras / garantia estendida, no padrão dos cartões Visa Infinite / Mastercard Black. Inclui também assistente pessoal 24h e cartão adicional gratuito.",
     obs: "Anuidade proporcional: cada R$1.000 gasto ou R$10.000 investido desconta R$10/mês. Alternativa: 1% de cashback direto em vez de pontos. Programa exato do BTG varia por fonte — tratamos como equivalente à Livelo.",
   },
   {
@@ -79,14 +97,20 @@ const CARDS = [
     name: "Santander Unique",
     banco: "Santander",
     anuidade: 1155,
-    gastoNecessario: 8000,
-    investNecessario: 50000,
+    gastoElegibilidade: null,
+    gastoIsencao: 8000,
+    rendaElegibilidade: null,
+    rendaIsencao: null,
+    investElegibilidade: 50000,
+    investIsencao: 50000,
     tipo: "pontos",
     programa: "esfera",
     pontosPorDolar: 2.2,
     acessosVIP: 4,
-    seguro: 350,
-    outros: 120,
+    redeTier: "visa_infinite",
+    seguro: 220,
+    outros: 100,
+    seguroOutrosDesc: "Seguro viagem internacional (assistência médica, bagagem extraviada) e proteção de compras / garantia estendida, no padrão dos cartões Visa Infinite / Mastercard Black. Inclui também assistente pessoal 24h e cartão adicional gratuito.",
     obs: "Isenção exige cumprir 2 de 3 critérios: ser correntista com pacote de serviços ativo, gastar R$ 8 mil/fatura ou ter R$ 50 mil investidos (aqui simplificamos assumindo que o correntista já cumpre o primeiro). Pontuação Esfera varia bastante por segmento (2 a 2,6/US$ nacional); usamos uma média conservadora.",
   },
   {
@@ -94,29 +118,41 @@ const CARDS = [
     name: "Santander Unlimited",
     banco: "Santander",
     anuidade: 2200,
-    gastoNecessario: null,
-    investNecessario: 100000,
+    gastoElegibilidade: null,
+    gastoIsencao: 30000,
+    rendaElegibilidade: 30000,
+    rendaIsencao: null,
+    investElegibilidade: 5000000,
+    investIsencao: 5000000,
     tipo: "pontos",
     programa: "esfera",
     pontosPorDolar: 2.6,
     acessosVIP: 10,
-    seguro: 450,
-    outros: 200,
-    obs: "Isenção principal é por renda (R$ 15-20 mil/mês, fora do perfil) — o valor de investimento aqui é uma estimativa, já que o banco não divulga um threshold claro só por investimento. Pontuação Esfera sobe para clientes Select/Agro/Especial (até 3,6/US$ internacional). Salas VIP ilimitadas (Priority Pass + LoungeKey); modelamos como 10x/ano.",
+    redeTier: "ultra",
+    seguro: 370,
+    outros: 160,
+    seguroOutrosDesc: "Seguro viagem internacional com cobertura ampliada, própria de cartões ultra-premium ligados a relacionamento private banking, além de proteção de compras / garantia estendida. Inclui concierge dedicado 24h e cartão adicional gratuito.",
+    obs: "Elegibilidade: R$ 5 milhões investidos ou R$ 30 mil de renda mensal. Isenção da anuidade: R$ 5 milhões investidos ou R$ 30 mil por fatura em gastos. Pontuação Esfera sobe para clientes Select/Agro/Especial (até 3,6/US$ internacional). Salas VIP ilimitadas (Priority Pass + LoungeKey); modelamos como 10x/ano.",
   },
   {
     id: "bradesco",
     name: "Bradesco Visa Infinite",
     banco: "Bradesco",
     anuidade: 1200,
-    gastoNecessario: 5000,
-    investNecessario: 50000,
+    gastoElegibilidade: null,
+    gastoIsencao: 5000,
+    rendaElegibilidade: null,
+    rendaIsencao: null,
+    investElegibilidade: 50000,
+    investIsencao: 50000,
     tipo: "pontos",
     programa: "livelo",
     pontosPorDolar: 1.8,
     acessosVIP: 4,
-    seguro: 300,
+    redeTier: "visa_infinite",
+    seguro: 220,
     outros: 100,
+    seguroOutrosDesc: "Seguro viagem internacional (assistência médica, bagagem extraviada) e proteção de compras / garantia estendida, no padrão dos cartões Visa Infinite / Mastercard Black. Inclui também assistente pessoal 24h e cartão adicional gratuito.",
     obs: "Isenção por investimento (R$ 50 mil) costuma valer só no 1º ano de campanhas promocionais; a partir do 2º ano o banco cobra gasto mensal recorrente (fontes variam entre R$ 3 mil e R$ 5 mil). Pontuação Livelo: 1,8/US$ em compras nacionais, 2,5/US$ em internacionais — aqui usamos a taxa nacional.",
   },
   {
@@ -124,14 +160,20 @@ const CARDS = [
     name: "Bradesco Elo Nanquim",
     banco: "Bradesco",
     anuidade: 1600,
-    gastoNecessario: 5000,
-    investNecessario: 50000,
+    gastoElegibilidade: null,
+    gastoIsencao: 5000,
+    rendaElegibilidade: null,
+    rendaIsencao: null,
+    investElegibilidade: 50000,
+    investIsencao: 50000,
     tipo: "pontos",
     programa: "livelo",
     pontosPorDolar: 1.8,
     acessosVIP: 2,
-    seguro: 250,
-    outros: 80,
+    redeTier: "mastercard_black",
+    seguro: 220,
+    outros: 100,
+    seguroOutrosDesc: "Seguro viagem internacional (assistência médica, bagagem extraviada) e proteção de compras / garantia estendida, no padrão dos cartões Visa Infinite / Mastercard Black. Inclui também assistente pessoal 24h e cartão adicional gratuito.",
     obs: "Fontes divergem: há quem diga que não existe isenção total permanente por gasto/investimento fora de campanhas promocionais para novas contas — vale confirmar direto com o gerente antes de contar com isso todo ano.",
   },
   {
@@ -139,43 +181,84 @@ const CARDS = [
     name: "Bradesco Aeternum Visa Infinite",
     banco: "Bradesco",
     anuidade: 3000,
-    gastoNecessario: null,
-    investNecessario: 5000000,
+    gastoElegibilidade: null,
+    gastoIsencao: null,
+    rendaElegibilidade: null,
+    rendaIsencao: null,
+    investElegibilidade: 5000000,
+    investIsencao: 5000000,
     tipo: "pontos",
     programa: "livelo",
     pontosPorDolar: 4.0,
     acessosVIP: 12,
-    seguro: 500,
-    outros: 200,
-    obs: "Cartão ultra-premium: isenção exige R$ 5 milhões investidos no banco — bem acima do orçamento de R$ 200 mil do perfil. Anuidade exata não é divulgada publicamente (estimativa). Salas VIP próprias (Bradesco Lounge) têm acesso e Dragonpass; modelamos como 12x/ano por não haver limite claro. Use a opção de ignorar custo de oportunidade só se você já se qualifica por outro caminho (ex.: Private Banking).",
+    redeTier: "ultra",
+    seguro: 370,
+    outros: 160,
+    seguroOutrosDesc: "Seguro viagem internacional com cobertura ampliada, própria de cartões ultra-premium ligados a relacionamento private banking, além de proteção de compras / garantia estendida. Inclui concierge dedicado 24h e cartão adicional gratuito.",
+    investimentoObrigatorio: true,
+    obs: "Cartão ultra-premium ligado ao relacionamento Private Banking — não é um produto de livre solicitação, então não existe a opção de simplesmente pagar a anuidade sem o investimento. Os R$ 5 milhões são requisito de acesso, não só de isenção. Anuidade exata não é divulgada publicamente (estimativa). Salas VIP próprias (Bradesco Lounge) têm acesso e Dragonpass; modelamos como 12x/ano por não haver limite claro. Use a opção de ignorar custo de oportunidade só se você já se qualifica por outro caminho (ex.: já é cliente Private).",
   },
   {
     id: "itaupersonnalite",
-    name: "Itaú Personnalité Black / Visa Infinite (versão Pontos)",
+    name: "Itaú Personnalité (Black/Visa Infinite)",
     banco: "Itaú",
     anuidade: 1200,
-    gastoNecessario: 5000,
-    investNecessario: 50000,
+    gastoElegibilidade: null,
+    gastoIsencao: 5000,
+    rendaElegibilidade: 15000,
+    rendaIsencao: null,
+    investElegibilidade: 250000,
+    investIsencao: 50000,
     tipo: "pontos",
     programa: "iupp",
     pontosPorDolar: 2.5,
     acessosVIP: 4,
-    seguro: 300,
+    redeTier: "mastercard_black",
+    seguro: 220,
     outros: 100,
-    obs: "Isenção por investimento caiu de R$ 250 mil para R$ 50 mil em 2026; ou gasto mensal de R$ 5 mil a R$ 20 mil, dependendo do cartão. Existe também uma versão sem programa de pontos/cashback com anuidade zero permanente, não modelada aqui. Taxa de pontos (Iupp) estimada — confirme no app.",
+    seguroOutrosDesc: "Seguro viagem internacional (assistência médica, bagagem extraviada) e proteção de compras / garantia estendida, no padrão dos cartões Visa Infinite / Mastercard Black. Inclui também assistente pessoal 24h e cartão adicional gratuito.",
+    obs: "Ser cliente Personnalité (pré-requisito pra esse cartão) pede renda de R$ 15 mil/mês ou R$ 250 mil investidos. Uma vez cliente, a isenção específica da anuidade do cartão cai pra R$ 50 mil investidos ou R$ 5 mil/mês em gastos. Existe também uma versão sem programa de pontos/cashback com anuidade zero permanente, não modelada aqui. Taxa de pontos (Iupp) estimada — confirme no app.",
+  },
+  {
+    id: "itauprivate",
+    name: "Itaú Private Visa Infinite",
+    banco: "Itaú",
+    anuidade: 0,
+    gastoElegibilidade: null,
+    gastoIsencao: null,
+    rendaElegibilidade: null,
+    rendaIsencao: null,
+    investElegibilidade: 5000000,
+    investIsencao: 5000000,
+    tipo: "pontos",
+    programa: "iupp",
+    pontosPorDolar: 3.0,
+    acessosVIP: 10,
+    redeTier: "ultra",
+    seguro: 370,
+    outros: 160,
+    seguroOutrosDesc: "Seguro viagem internacional com cobertura ampliada, própria de cartões ultra-premium ligados a relacionamento private banking, além de proteção de compras / garantia estendida. Inclui concierge dedicado 24h e cartão adicional gratuito.",
+    investimentoObrigatorio: true,
+    obs: "Exclusivo pra quem já é cliente Itaú Private (R$ 5 milhões investidos no banco) — sem essa via, não tem como pedir o cartão. Anuidade já é zero para quem se qualifica, sem precisar de gasto ou investimento adicional além disso. Só 10 acessos VIP por ano, um número baixo pra esse patamar de exigência (alvo de crítica recorrente entre especialistas em milhas).",
   },
   {
     id: "xpinfinite50",
     name: "XP Visa Infinite (R$ 50 mil investidos)",
     banco: "XP Investimentos",
     anuidade: 0,
-    gastoNecessario: null,
-    investNecessario: 50000,
+    gastoElegibilidade: null,
+    gastoIsencao: null,
+    rendaElegibilidade: null,
+    rendaIsencao: null,
+    investElegibilidade: 50000,
+    investIsencao: 50000,
     tipo: "cashback",
     cashbackPercent: 0.01,
     acessosVIP: 4,
-    seguro: 250,
+    redeTier: "visa_infinite",
+    seguro: 220,
     outros: 100,
+    seguroOutrosDesc: "Seguro viagem internacional (assistência médica, bagagem extraviada) e proteção de compras / garantia estendida, no padrão dos cartões Visa Infinite / Mastercard Black. Inclui também assistente pessoal 24h e cartão adicional gratuito.",
     investimentoObrigatorio: true,
     obs: "Anuidade é zero mesmo sem investir — os R$ 50 mil aqui destravam 4 acessos VIP/ano (2 acessos exigem só R$ 5 mil). Como não há anuidade pra 'pagar em vez de investir', o investimento é obrigatório pra ter esse nível de benefício. Existe alternativa de pontos (até 2,2/dólar, só em compras internacionais), não modelada aqui.",
   },
@@ -184,13 +267,19 @@ const CARDS = [
     name: "XP One Visa Infinite (R$ 5 mil investidos)",
     banco: "XP Investimentos",
     anuidade: 0,
-    gastoNecessario: null,
-    investNecessario: 5000,
+    gastoElegibilidade: null,
+    gastoIsencao: null,
+    rendaElegibilidade: null,
+    rendaIsencao: null,
+    investElegibilidade: 5000,
+    investIsencao: 5000,
     tipo: "cashback",
     cashbackPercent: 0.008,
     acessosVIP: 2,
-    seguro: 150,
-    outros: 50,
+    redeTier: "visa_infinite",
+    seguro: 220,
+    outros: 100,
+    seguroOutrosDesc: "Seguro viagem internacional (assistência médica, bagagem extraviada) e proteção de compras / garantia estendida, no padrão dos cartões Visa Infinite / Mastercard Black. Inclui também assistente pessoal 24h e cartão adicional gratuito.",
     investimentoObrigatorio: true,
     obs: "Versão de entrada: anuidade zero, investimento mínimo bem menor — mas, assim como no XP Visa Infinite, esse investimento é obrigatório pra ter o benefício, não uma alternativa à anuidade. Também dá pra escolher pontos Livelo em vez de cashback.",
   },
@@ -199,31 +288,188 @@ const CARDS = [
     name: "Nubank Ultravioleta",
     banco: "Nubank",
     anuidade: 0,
-    gastoNecessario: null,
-    investNecessario: 0,
+    gastoElegibilidade: null,
+    gastoIsencao: null,
+    rendaElegibilidade: null,
+    rendaIsencao: null,
+    investElegibilidade: 0,
+    investIsencao: 0,
     tipo: "cashback",
     cashbackPercent: 0.0125,
     acessosVIP: 4,
-    seguro: 200,
+    redeTier: "mastercard_black",
+    seguro: 220,
     outros: 100,
-    obs: "Anuidade zero permanente, sem exigência de gasto ou investimento — é liberado por convite/relacionamento (bom score e histórico), não por valor investido. Alternativa: 2,2 pontos por dólar em vez de 1,25% de cashback. Saldo de cashback rende 200% do CDI até ser usado.",
+    seguroOutrosDesc: "Seguro viagem internacional (assistência médica, bagagem extraviada) e proteção de compras / garantia estendida, no padrão dos cartões Visa Infinite / Mastercard Black. Inclui também assistente pessoal 24h e cartão adicional gratuito.",
+    obs: "Anuidade zero permanente, sem exigência de gasto ou investimento — é liberado por convite/relacionamento (bom score e histórico), não por valor investido. Alternativa: 2,2 pontos por dólar em vez de 1,25% de cashback.",
   },
   {
-    id: "interblack",
-    name: "Inter Black (Win)",
+    id: "interprime",
+    name: "Inter Prime",
     banco: "Banco Inter",
     anuidade: 0,
-    gastoNecessario: null,
-    investNecessario: 150000,
+    gastoElegibilidade: 7000,
+    gastoIsencao: 7000,
+    rendaElegibilidade: null,
+    rendaIsencao: null,
+    investElegibilidade: 150000,
+    investIsencao: 150000,
+    tipo: "pontos",
+    programa: "loop",
+    baseCalculo: "real",
+    pontosPorDolar: 0.4,
+    acessosVIP: 6,
+    redeTier: "mastercard_black",
+    ajusteExtraDefault: 40,
+    extraDesc: "Assinatura Duo Gourmet (compre um prato, leve dois, em restaurantes parceiros) — não faz parte do pacote padrão Mastercard Black, é um plus específico do Inter.",
+    investimentoObrigatorio: true,
+    obs: "Anuidade zero permanente, mas só é liberado com R$ 150 mil investidos no Inter OU R$ 7 mil/mês em gastos sustentados nas últimas 4 faturas (ex-'Inter Black', renomeado em 2026) — sem essas duas vias não dá pra ter o cartão, por isso o investimento entra como obrigatório mesmo havendo a alternativa por gasto. Pontuação Inter Loop: 1 ponto a cada R$ 2,50 gastos (0,4 ponto/R$, direto — não depende do dólar). 6 acessos Priority Pass/ano + acesso ilimitado às salas próprias do Inter em Guarulhos, Curitiba e Confins (não contabilizado à parte).",
+  },
+  {
+    id: "interwin",
+    name: "Inter Win",
+    banco: "Banco Inter",
+    anuidade: 0,
+    gastoElegibilidade: null,
+    gastoIsencao: null,
+    rendaElegibilidade: null,
+    rendaIsencao: null,
+    investElegibilidade: 1000000,
+    investIsencao: 1000000,
     tipo: "pontos",
     programa: "loop",
     baseCalculo: "real",
     pontosPorDolar: 0.5,
-    acessosVIP: 10,
-    seguro: 300,
-    outros: 150,
+    acessosVIP: 12,
+    redeTier: "mastercard_black",
+    ajusteExtraDefault: 40,
+    extraDesc: "Assinatura Duo Gourmet (compre um prato, leve dois, em restaurantes parceiros) — pacote de assessoria exclusivo desse tier, sem equivalente no Inter Prime nem no pacote padrão Mastercard Black.",
     investimentoObrigatorio: true,
-    obs: "Anuidade zero permanente, mas o pacote completo de benefícios (salas VIP ilimitadas, CDB Mais Limite) pede de R$ 150 mil a R$ 1 milhão investido no Inter — por isso o investimento é obrigatório aqui, não uma alternativa à anuidade. Pontuação do Inter Loop é direto por real gasto (1 ponto a cada R$ 2, ou seja 0,5 ponto/R$), não por dólar como os outros — bem mais baixa que C6 Carbon ou Nubank Ultravioleta, mas compensada pelo custo zero.",
+    obs: "Tier mais alto do Inter — anuidade zero permanente, mas o único critério de elegibilidade é enquadramento no segmento Inter One: R$ 1 milhão em ativos sob custódia no banco. Não existe via alternativa por gasto (diferente do Prime). Pontuação Inter Loop: 1 ponto a cada R$ 2,00 gastos (0,5 ponto/R$, direto — não depende do dólar). LoungeKey ilimitado (mais de 1.100 salas em 500 aeroportos) — modelado como 12x/ano por não haver teto real. O seguro viagem e a proteção de compras são os mesmos do padrão Mastercard Black, sem diferença em relação ao Prime.",
+  },
+  {
+    id: "bbourocardinfinite",
+    name: "BB Ourocard Visa Infinite",
+    banco: "Banco do Brasil",
+    anuidade: 996,
+    gastoElegibilidade: null,
+    gastoIsencao: 15000,
+    rendaElegibilidade: 10000,
+    rendaIsencao: null,
+    investElegibilidade: 250000,
+    investIsencao: 250000,
+    tipo: "pontos",
+    programa: "livelo",
+    pontosPorDolar: 2.0,
+    acessosVIP: 4,
+    redeTier: "visa_infinite",
+    seguro: 220,
+    outros: 100,
+    seguroOutrosDesc: "Seguro viagem internacional (assistência médica, bagagem extraviada) e proteção de compras / garantia estendida, no padrão dos cartões Visa Infinite / Mastercard Black. Inclui também assistente pessoal 24h e cartão adicional gratuito.",
+    obs: "Corrigido após nova checagem: gasto mínimo real é R$ 15 mil/mês (R$ 10 mil para clientes do segmento Estilo) — bem mais alto do que o estimado antes. Isenção por investimento é R$ 250 mil, independente do gasto. Elegibilidade básica (aprovação do cartão) pede renda de R$ 10 mil + limite de R$ 10 mil em outro cartão — renda sozinha não isenta a anuidade, só permite ter o cartão. Pontuação Livelo: 3 pts/US$ em compras internacionais (usamos uma taxa nacional mais conservadora de 2 pts/US$, não confirmada). Ter esse cartão ativo ainda dá 90% de desconto na anuidade do Elo Nanquim e 80% no Mastercard Black — não modelado aqui.",
+  },
+  {
+    id: "itauplatinum",
+    name: "Itaú Platinum",
+    banco: "Itaú",
+    anuidade: 0,
+    gastoElegibilidade: null,
+    gastoIsencao: null,
+    rendaElegibilidade: null,
+    rendaIsencao: null,
+    investElegibilidade: 0,
+    investIsencao: 0,
+    tipo: "pontos",
+    programa: "iupp",
+    pontosPorDolar: 1.5,
+    acessosVIP: 0,
+    redeTier: "basico",
+    seguro: 30,
+    outros: 0,
+    seguroOutrosDesc: "Proteção de compras / garantia estendida padrão da bandeira. Sem seguro viagem incluído — é um cartão de entrada, sem esse tipo de cobertura.",
+    obs: "Sem anuidade e sem renda mínima — substituiu o antigo Itaú Click+. Pontuação de até 1,5 ponto/dólar só é liberada com planos pagos do Iupp (mensalidade não modelada aqui); sem sala VIP. Cartão de entrada, não premium — serve de comparação com o custo zero.",
+  },
+  {
+    id: "nubankplatinum",
+    name: "Nubank Platinum (padrão)",
+    banco: "Nubank",
+    anuidade: 0,
+    gastoElegibilidade: null,
+    gastoIsencao: null,
+    rendaElegibilidade: null,
+    rendaIsencao: null,
+    investElegibilidade: 0,
+    investIsencao: 0,
+    tipo: "cashback",
+    cashbackPercent: 0,
+    acessosVIP: 0,
+    redeTier: "basico",
+    seguro: 30,
+    outros: 0,
+    seguroOutrosDesc: "Proteção de compras / garantia estendida padrão da bandeira. Sem seguro viagem incluído — é um cartão de entrada, sem esse tipo de cobertura.",
+    obs: "O cartão mais usado do Brasil em número de clientes. Sem anuidade, mas também sem pontos ou cashback nativos — existe o programa opcional Nubank Rewards, com mensalidade própria, não modelado aqui.",
+  },
+  {
+    id: "neonmastercard",
+    name: "Neon Mastercard",
+    banco: "Neon",
+    anuidade: 0,
+    gastoElegibilidade: null,
+    gastoIsencao: null,
+    rendaElegibilidade: null,
+    rendaIsencao: null,
+    investElegibilidade: 0,
+    investIsencao: 0,
+    tipo: "cashback",
+    cashbackPercent: 0.005,
+    acessosVIP: 0,
+    redeTier: "basico",
+    seguro: 30,
+    outros: 0,
+    seguroOutrosDesc: "Proteção de compras / garantia estendida padrão da bandeira. Sem seguro viagem incluído — é um cartão de entrada, sem esse tipo de cobertura.",
+    obs: "Sem anuidade, aprovação flexível (até para quem tem score baixo). Cashback de até 0,5% em compras, sem sala VIP ou seguro robusto — cartão de entrada, não premium.",
+  },
+  {
+    id: "pagbank",
+    name: "PagBank (limite garantido)",
+    banco: "PagBank",
+    anuidade: 0,
+    gastoElegibilidade: null,
+    gastoIsencao: null,
+    rendaElegibilidade: null,
+    rendaIsencao: null,
+    investElegibilidade: 0,
+    investIsencao: 0,
+    tipo: "cashback",
+    cashbackPercent: 0.0075,
+    acessosVIP: 0,
+    redeTier: "basico",
+    seguro: 30,
+    outros: 0,
+    seguroOutrosDesc: "Proteção de compras / garantia estendida padrão da bandeira. Sem seguro viagem incluído — é um cartão de entrada, sem esse tipo de cobertura.",
+    obs: "Sem anuidade e sem análise de crédito tradicional — o limite é garantido por um CDB próprio do PagBank (que rende separadamente, não contabilizado aqui). Cashback de 0,5% a 1% dependendo do valor da fatura.",
+  },
+  {
+    id: "btgultrablue",
+    name: "BTG Ultrablue",
+    banco: "BTG Pactual",
+    anuidade: 4800,
+    gastoElegibilidade: null,
+    gastoIsencao: null,
+    rendaElegibilidade: null,
+    rendaIsencao: null,
+    investElegibilidade: 1000000,
+    investIsencao: 1000000,
+    tipo: "pontos",
+    programa: "livelo",
+    pontosPorDolar: 3.5,
+    acessosVIP: 12,
+    redeTier: "ultra",
+    seguro: 370,
+    outros: 160,
+    seguroOutrosDesc: "Seguro viagem internacional com cobertura ampliada, própria de cartões ultra-premium ligados a relacionamento private banking, além de proteção de compras / garantia estendida. Inclui concierge dedicado 24h e cartão adicional gratuito.",
+    investimentoObrigatorio: true,
+    obs: "Cartão de metal do BTG oferecido a clientes de alto relacionamento — não é um produto de livre solicitação, então o investimento é requisito de acesso, não só de isenção; não existe alternativa de 'só pagar a anuidade'. Anuidade de R$ 4.800/ano (R$ 400/mês). O valor de R$ 1 milhão é uma estimativa conservadora (pode chegar a R$ 3-5 milhões na versão mais nova, World Legend). Alternativa: 1,7% de cashback em vez de pontos. Salas VIP ilimitadas com até 12 convidados/ano.",
   },
 ];
 
@@ -237,10 +483,10 @@ const initOverrides = () =>
       c.id,
       {
         rendimentoProprio: 100,
-        seguroOutros: c.seguro + c.outros,
         acessosVIP: c.acessosVIP,
         taxaRecompensa: c.tipo === "pontos" ? c.pontosPorDolar : c.cashbackPercent,
         ignorarOportunidade: false,
+        ajusteExtra: c.ajusteExtraDefault ?? 0,
       },
     ])
   );
@@ -291,19 +537,27 @@ function CampoManual({ label, value, onChange, desc }) {
 
 export default function RankingCartoes() {
   const [gastoMensal, setGastoMensal] = useState(4000);
+  const [renda, setRenda] = useState(8000);
   const [cdi, setCdi] = useState(14.15);
   const [cotacaoDolar, setCotacaoDolar] = useState(5.08);
   const [acessosUsadosAno, setAcessosUsadosAno] = useState(4);
   const [valorAcessoVIP, setValorAcessoVIP] = useState(150);
 
   const [taxaOportunidade, setTaxaOportunidade] = useState(100);
-  const [pesoSeguro, setPesoSeguro] = useState(100);
+  const [valoresTier, setValoresTier] = useState({
+    basico: 30,
+    mastercard_black: 320,
+    visa_infinite: 320,
+    ultra: 530,
+  });
   const [valoresPontos, setValoresPontos] = useState(initValoresPontos);
   const [investimentoMaximo, setInvestimentoMaximo] = useState(10000);
 
   const [overrides, setOverrides] = useState(initOverrides);
   const [expanded, setExpanded] = useState(null);
   const [mostrarAvancado, setMostrarAvancado] = useState(false);
+  const [sortCol, setSortCol] = useState("ganhoTotal");
+  const [sortDir, setSortDir] = useState("desc");
 
   const setOv = (id, field, val) =>
     setOverrides((o) => ({ ...o, [id]: { ...o[id], [field]: val } }));
@@ -317,31 +571,51 @@ export default function RankingCartoes() {
 
     const rows = CARDS.map((c) => {
       const ov = overrides[c.id];
-      const cobrePorGasto = c.gastoNecessario !== null && gastoMensal >= c.gastoNecessario;
       const proprioFrac = (ov.rendimentoProprio / 100) * cdiFrac;
-      let custoOportunidade = 0;
+
+      // Elegibilidade = consigo TER o cartão. Isenção = consigo ZERAR a anuidade.
+      // Cada critério (gasto, renda, investimento) pode não existir pra um cartão —
+      // nesse caso o campo é null e essa via nunca conta como cumprida.
+      const eligivelPorGasto = c.gastoElegibilidade !== null && gastoMensal >= c.gastoElegibilidade;
+      const isentoPorGasto = c.gastoIsencao !== null && gastoMensal >= c.gastoIsencao;
+      const eligivelPorRenda = c.rendaElegibilidade !== null && renda >= c.rendaElegibilidade;
+      const isentoPorRenda = c.rendaIsencao !== null && renda >= c.rendaIsencao;
+      const elegivelPorInvest = c.investElegibilidade !== null && investimentoMaximo >= c.investElegibilidade;
+      const isentoPorInvestDentroOrcamento = c.investIsencao !== null && investimentoMaximo >= c.investIsencao;
+
+      const isentoGratis = isentoPorGasto || isentoPorRenda;
+      // Cartões "fechados" (investimentoObrigatorio) só existem pra quem bate alguma elegibilidade;
+      // os demais sempre têm a via normal de solicitar e pagar a anuidade cheia.
+      const elegivel = !c.investimentoObrigatorio || eligivelPorGasto || eligivelPorRenda || elegivelPorInvest;
+
       let via = "gasto";
       let viavel = true;
-      if (!cobrePorGasto) {
-        via = "investimento";
-        const excedeOrcamento = c.investNecessario > investimentoMaximo;
+      let custoOportunidade = 0;
 
-        custoOportunidade = ov.ignorarOportunidade
-          ? 0
-          : Math.round(c.investNecessario * (oportunidadeFrac - proprioFrac));
-
-        if (c.investimentoObrigatorio) {
-          if (excedeOrcamento && !ov.ignorarOportunidade) {
-            via = "inviável";
-            viavel = false;
-          }
+      if (ov.ignorarOportunidade) {
+        via = isentoGratis ? (isentoPorGasto ? "gasto" : "renda") : "investimento";
+      } else if (isentoGratis) {
+        via = isentoPorGasto ? "gasto" : "renda";
+      } else if (!elegivel) {
+        via = "inviável";
+        viavel = false;
+        custoOportunidade = c.anuidade;
+      } else if (!isentoPorInvestDentroOrcamento) {
+        via = "anuidade (orçamento insuficiente)";
+        custoOportunidade = c.anuidade;
+      } else {
+        const custoInvest = Math.round(c.investIsencao * (oportunidadeFrac - proprioFrac));
+        if (!c.investimentoObrigatorio && custoInvest > c.anuidade) {
+          via = "anuidade (mais barato)";
+          custoOportunidade = c.anuidade;
         } else {
-          if (!ov.ignorarOportunidade && (excedeOrcamento || custoOportunidade > c.anuidade)) {
-            custoOportunidade = c.anuidade;
-            via = excedeOrcamento ? "anuidade (orçamento insuficiente)" : "anuidade (mais barato)";
-          }
+          via = "investimento";
+          custoOportunidade = custoInvest;
         }
-        if (c.investNecessario === 0) via = "gratuito";
+      }
+      if (c.investIsencao === 0 && !isentoGratis && via === "investimento") {
+        via = "gratuito";
+        custoOportunidade = 0;
       }
 
       let pontosAnual = 0;
@@ -359,15 +633,16 @@ export default function RankingCartoes() {
 
       const acessosUsados = Math.min(acessosUsadosAno, ov.acessosVIP);
       const valorLounge = acessosUsados * valorAcessoVIP;
-      const valorSeguroOutros = ov.seguroOutros * (pesoSeguro / 100);
+      const valorSeguroOutros = (valoresTier[c.redeTier] ?? 0) + ov.ajusteExtra;
 
       const totalBeneficios = valorRecompensa + valorLounge + valorSeguroOutros;
       const ganhoTotal = totalBeneficios - custoOportunidade;
+      const anuidadePaga = via.startsWith("anuidade") || via === "inviável" ? c.anuidade : 0;
 
       return {
         ...c,
         ov,
-        cobrePorGasto,
+        isentoGratis,
         via,
         viavel,
         custoOportunidade,
@@ -378,6 +653,7 @@ export default function RankingCartoes() {
         valorSeguroOutros,
         totalBeneficios,
         ganhoTotal,
+        anuidadePaga,
       };
     });
 
@@ -385,23 +661,45 @@ export default function RankingCartoes() {
       if (a.viavel !== b.viavel) return a.viavel ? -1 : 1;
       return b.ganhoTotal - a.ganhoTotal;
     });
-  }, [gastoMensal, cdi, taxaOportunidade, cotacaoDolar, acessosUsadosAno, valorAcessoVIP, pesoSeguro, valoresPontos, investimentoMaximo, overrides]);
+  }, [gastoMensal, cdi, taxaOportunidade, cotacaoDolar, acessosUsadosAno, valorAcessoVIP, valoresTier, valoresPontos, investimentoMaximo, renda, overrides]);
+
+  const tabelaOrdenada = useMemo(() => {
+    const arr = [...results];
+    arr.sort((a, b) => {
+      let av = a[sortCol];
+      let bv = b[sortCol];
+      if (typeof av === "string") {
+        av = av.toLowerCase();
+        bv = bv.toLowerCase();
+      }
+      if (av < bv) return sortDir === "asc" ? -1 : 1;
+      if (av > bv) return sortDir === "asc" ? 1 : -1;
+      return 0;
+    });
+    return arr;
+  }, [results, sortCol, sortDir]);
+
+  const handleSort = (col) => {
+    if (col === sortCol) {
+      setSortDir((d) => (d === "asc" ? "desc" : "asc"));
+    } else {
+      setSortCol(col);
+      setSortDir(col === "name" ? "asc" : "desc");
+    }
+  };
 
   return (
     <div className="min-h-screen bg-stone-50 text-stone-900 p-4 sm:p-8">
       <div className="max-w-3xl mx-auto">
         <header className="mb-6 border-b border-stone-300 pb-4">
           <p className="text-xs uppercase tracking-widest text-amber-700 font-semibold mb-1">
-            Ranking em reais — editável por cartão
+            Ranking de cartões premium
           </p>
           <h1 className="font-serif text-2xl sm:text-3xl font-bold text-stone-900">
-            Cartões premium: valor líquido por ano
+            Qual cartão vale mais a pena pra você?
           </h1>
           <p className="text-sm text-stone-600 mt-1">
-            Total = − custo de oportunidade + pontos/cashback + salas VIP + seguro/outros. Quando investir
-            custaria mais caro que a própria anuidade, o modelo assume que você paga a anuidade em vez de
-            investir — o custo nunca passa do valor da anuidade cheia. A anuidade evitada por gasto
-            aparece só como referência, fora da soma.
+            Preencha os parâmetros e descubra qual cartão você pode conseguir e vale mais a pena para você.
           </p>
         </header>
 
@@ -409,20 +707,21 @@ export default function RankingCartoes() {
         <section className="bg-white border border-stone-200 rounded-lg p-4 mb-5">
           <h2 className="font-serif font-semibold text-stone-800 mb-3">Parâmetros gerais</h2>
           <div className="grid sm:grid-cols-2 gap-4">
-            <CampoManual label="Gasto mensal no cartão" value={gastoMensal} onChange={setGastoMensal}
-              desc="Quanto você gasta por mês no cartão — define se a isenção de anuidade sai de graça pelo gasto ou exige investimento." />
+            <CampoManual label="Gasto mensal no cartão" value={gastoMensal} onChange={setGastoMensal} />
             <CampoManual label="Investimento máximo disponível" value={investimentoMaximo} onChange={setInvestimentoMaximo}
-              desc="Teto de capital que você poderia realmente destinar pra isenção de anuidade. Cartões que exigem mais que isso não ficam mais disponíveis pela via de investimento." />
+              desc="Investimento que você faria no banco emissor do cartão. Só será necessário se for a forma mais econômica de conseguir o cartão." />
+            <CampoManual label="Renda mensal" value={renda} onChange={setRenda}
+              desc="Alguns cartões liberam elegibilidade ou isenção com base na renda, em vez de gasto ou investimento. Sugestão inicial: o dobro do seu gasto mensal." />
             <Campo label="Cotação do dólar" valor={`R$ ${cotacaoDolar.toFixed(2)}`} min={4.5} max={6.0} step={0.01}
               onChange={setCotacaoDolar} desc="Câmbio usado para converter 'pontos por dólar' em pontos por real gasto, nos cartões que usam esse método de cálculo.">
               {cotacaoDolar}
             </Campo>
             <Campo label="Vezes/ano que você usaria salas VIP" valor={`${acessosUsadosAno}x`} min={0} max={12} step={1}
-              onChange={setAcessosUsadosAno} desc="Quantos acessos você realmente aproveitaria por ano — cada cartão usa o menor valor entre isso e o limite que ele oferece.">
+              onChange={setAcessosUsadosAno} desc="Quantos acessos você aproveitaria por ano.">
               {acessosUsadosAno}
             </Campo>
             <Campo label="Valor por acesso à sala VIP" valor={fmtBRL(valorAcessoVIP)} min={0} max={300} step={10}
-              onChange={setValorAcessoVIP} desc="Quanto vale pra você, em reais, cada visita a uma sala VIP (referência: preço avulso costuma ficar entre R$ 100 e R$ 200).">
+              onChange={setValorAcessoVIP} desc="Quanto vale para você o acesso a uma sala VIP.">
               {valorAcessoVIP}
             </Campo>
           </div>
@@ -450,11 +749,38 @@ export default function RankingCartoes() {
                   desc="Rendimento que seu dinheiro conseguiria fora do banco emissor. 100% do CDI é o padrão neutro; suba se você normalmente consegue taxas melhores em outro lugar.">
                   {taxaOportunidade}
                 </Campo>
-                <Campo label="Peso do seguro (ajuste geral)" valor={`${pesoSeguro}%`} min={0} max={200} step={10}
-                  onChange={setPesoSeguro}
-                  desc="Escala pra cima ou pra baixo o valor de seguro/outros benefícios de todos os cartões de uma vez — útil pra testar 'e se eu valorizasse menos esse tipo de proteção?' sem mexer cartão por cartão.">
-                  {pesoSeguro}
-                </Campo>
+              </div>
+
+              <div>
+                <h3 className="text-sm font-semibold text-stone-700 mb-1">Valor do pacote de seguro/benefícios por categoria de cartão</h3>
+                <p className="text-xs text-stone-500 mb-3">
+                  Cada categoria de cartão tem um pacote padrão de seguro viagem, proteção de compras,
+                  concierge e cartão adicional. Ajuste o valor de cada categoria pra cima ou pra baixo se
+                  achar que ela vale mais ou menos do que estimamos — afeta todos os cartões daquele grupo
+                  de uma vez.
+                </p>
+                <div className="grid sm:grid-cols-2 gap-4">
+                  <Campo label="Cartões básicos" valor={fmtBRL(valoresTier.basico)} min={0} max={1000} step={10}
+                    onChange={(v) => setValoresTier((p) => ({ ...p, basico: v }))}
+                    desc="Cartões de entrada, sem seguro viagem — só proteção de compras básica.">
+                    {valoresTier.basico}
+                  </Campo>
+                  <Campo label="Mastercard Black" valor={fmtBRL(valoresTier.mastercard_black)} min={0} max={1000} step={10}
+                    onChange={(v) => setValoresTier((p) => ({ ...p, mastercard_black: v }))}
+                    desc="Pacote padrão dos cartões na bandeira Mastercard Black.">
+                    {valoresTier.mastercard_black}
+                  </Campo>
+                  <Campo label="Visa Infinite" valor={fmtBRL(valoresTier.visa_infinite)} min={0} max={1000} step={10}
+                    onChange={(v) => setValoresTier((p) => ({ ...p, visa_infinite: v }))}
+                    desc="Pacote padrão dos cartões na bandeira Visa Infinite.">
+                    {valoresTier.visa_infinite}
+                  </Campo>
+                  <Campo label="Nível mais elevado (Ultrablue, Aeternum...)" valor={fmtBRL(valoresTier.ultra)} min={0} max={1000} step={10}
+                    onChange={(v) => setValoresTier((p) => ({ ...p, ultra: v }))}
+                    desc="Cartões ultra-premium ligados a relacionamento private banking, com cobertura ampliada e concierge dedicado.">
+                    {valoresTier.ultra}
+                  </Campo>
+                </div>
               </div>
 
               <div>
@@ -524,10 +850,15 @@ export default function RankingCartoes() {
                         desc="Quanto o produto de renda fixa desse banco rende, comparado ao CDI — quanto maior, menor o custo de oportunidade de investir nele.">
                         {r.ov.rendimentoProprio}
                       </Campo>
-                      <Campo label="Seguro + outros benefícios (R$/ano)" valor={fmtBRL(r.ov.seguroOutros)}
-                        min={0} max={800} step={10} onChange={(v) => setOv(r.id, "seguroOutros", v)}
-                        desc="Estimativa do valor anual de seguro viagem, proteção de compras, concierge e outros extras que não são pontos nem salas VIP.">
-                        {r.ov.seguroOutros}
+                      <div className="sm:col-span-2 text-xs text-stone-500">
+                        <span className="font-medium text-stone-700">Pacote padrão da categoria: </span>
+                        {fmtBRL(valoresTier[r.redeTier] ?? 0)}/ano (ajustável na régua por categoria, em
+                        Parâmetros avançados). {r.seguroOutrosDesc}
+                      </div>
+                      <Campo label="Valor adicional percebido nesse cartão" valor={fmtBRL(r.ov.ajusteExtra)}
+                        min={-300} max={300} step={10} onChange={(v) => setOv(r.id, "ajusteExtra", v)}
+                        desc={r.extraDesc || "Some (ou subtraia) aqui algo específico deste cartão que não faz parte do pacote padrão da categoria, ou uma desvantagem que você percebe nele. Aceita valores negativos."}>
+                        {r.ov.ajusteExtra}
                       </Campo>
                       <Campo label="Nº de acessos à sala VIP por ano" valor={`${r.ov.acessosVIP}x/ano`}
                         min={0} max={12} step={1} onChange={(v) => setOv(r.id, "acessosVIP", v)}
@@ -549,31 +880,28 @@ export default function RankingCartoes() {
                           onChange={(e) => setOv(r.id, "ignorarOportunidade", e.target.checked)}
                           className="accent-amber-600 mt-0.5"
                         />
-                        <span>
-                          Já tenho a isenção garantida — ignorar custo de oportunidade. Marque se você já
-                          investe o necessário em outro produto, ou já bate a meta de gasto por outro
-                          motivo, então esse capital não é um custo extra pra ter este cartão.
-                        </span>
+                        <span>Já tenho a isenção garantida, ignorar anuidade.</span>
                       </label>
                     </div>
 
                     {/* Aviso de inviabilidade */}
                     {!r.viavel && (
                       <div className="bg-rose-50 border border-rose-300 rounded-md p-2 text-xs text-rose-700">
-                        Não alcançável com o seu investimento máximo: exige {fmtBRL(r.investNecessario)}, acima
-                        do teto de {fmtBRL(investimentoMaximo)}. Os valores abaixo são hipotéticos (como se
-                        você conseguisse investir o necessário) — na prática, esse nível de benefício fica fora
-                        do seu orçamento.
+                        Não alcançável com os parâmetros atuais: exige {fmtBRL(r.investElegibilidade)} de
+                        investimento{r.gastoElegibilidade ? `, ${fmtBRL(r.gastoElegibilidade)}/mês de gasto` : ""}
+                        {r.rendaElegibilidade ? ` ou ${fmtBRL(r.rendaElegibilidade)}/mês de renda` : ""} — nenhum
+                        desses você atinge agora.
                       </div>
                     )}
 
                     {/* Detalhamento */}
                     <div className="grid grid-cols-2 gap-x-4 gap-y-1 font-mono text-xs">
-                      {r.via.startsWith("anuidade") ? (
+                      {r.via.startsWith("anuidade") || r.via === "inviável" ? (
                         <>
                           <span>
-                            Anuidade paga
-                            {r.via.includes("orçamento") ? " (investimento excede o teto)" : " (mais barato que investir)"}
+                            Anuidade {r.via === "inviável" ? "(cobrada, hipotético)" : "paga"}
+                            {r.via.includes("orçamento") ? " (investimento excede o teto)" : ""}
+                            {r.via === "anuidade (mais barato)" ? " (mais barato que investir)" : ""}
                           </span>
                           <span className="text-right text-rose-700">-{fmtBRL(r.anuidade)}/ano</span>
                         </>
@@ -585,10 +913,10 @@ export default function RankingCartoes() {
                       )}
                       <span>Caminho usado</span>
                       <span className="text-right capitalize">{r.via}</span>
-                      {!r.cobrePorGasto && !r.via.startsWith("anuidade") && r.via !== "gratuito" && r.via !== "inviável" && (
+                      {!r.isentoGratis && !r.via.startsWith("anuidade") && r.via !== "gratuito" && r.via !== "inviável" && (
                         <>
-                          <span>Capital exigido{r.investimentoObrigatorio ? " (obrigatório)" : ""}</span>
-                          <span className="text-right">{fmtBRL(r.investNecessario)}</span>
+                          <span>Capital para isenção{r.investimentoObrigatorio ? " (obrigatório)" : ""}</span>
+                          <span className="text-right">{fmtBRL(r.investIsencao)}</span>
                           <span>Custo de oportunidade{r.ov.ignorarOportunidade ? " (ignorado)" : ""}</span>
                           <span className={`text-right ${r.ov.ignorarOportunidade ? "text-stone-400" : "text-rose-700"}`}>
                             -{fmtBRL(r.custoOportunidade)}/ano
@@ -597,8 +925,8 @@ export default function RankingCartoes() {
                       )}
                       {r.via === "inviável" && (
                         <>
-                          <span>Capital exigido (acima do seu teto)</span>
-                          <span className="text-right text-rose-700">{fmtBRL(r.investNecessario)}</span>
+                          <span>Capital p/ elegibilidade (acima do seu teto)</span>
+                          <span className="text-right text-rose-700">{fmtBRL(r.investElegibilidade)}</span>
                         </>
                       )}
                       {r.tipo === "pontos" && (
@@ -626,6 +954,60 @@ export default function RankingCartoes() {
               </div>
             );
           })}
+        </section>
+
+        {/* Tabela comparativa ordenável */}
+        <section className="bg-white border border-stone-200 rounded-lg p-4 mb-5 mt-5 overflow-x-auto">
+          <h2 className="font-serif font-semibold text-stone-800 mb-3">Tabela comparativa</h2>
+          <table className="w-full text-xs border-collapse min-w-[640px]">
+            <thead>
+              <tr className="border-b border-stone-300">
+                {[
+                  { key: "name", label: "Cartão" },
+                  { key: "valorRecompensa", label: "Cashback/Pontos" },
+                  { key: "valorLounge", label: "Sala VIP" },
+                  { key: "valorSeguroOutros", label: "Seguro/Outros" },
+                  { key: "anuidadePaga", label: "Anuidade paga" },
+                  { key: "ganhoTotal", label: "Total líquido" },
+                ].map((col) => (
+                  <th
+                    key={col.key}
+                    onClick={() => handleSort(col.key)}
+                    className="cursor-pointer select-none px-2 py-2 text-left font-semibold text-stone-600 hover:text-amber-700 whitespace-nowrap"
+                  >
+                    {col.label} {sortCol === col.key ? (sortDir === "asc" ? "▲" : "▼") : ""}
+                  </th>
+                ))}
+              </tr>
+            </thead>
+            <tbody>
+              {tabelaOrdenada.map((r) => (
+                <tr key={r.id} className="border-b border-stone-100">
+                  <td className={`px-2 py-2 font-medium whitespace-nowrap ${r.viavel ? "text-stone-800" : "text-rose-600"}`}>
+                    {r.name}
+                  </td>
+                  <td className="px-2 py-2 font-mono text-emerald-700 whitespace-nowrap">{fmtBRL(r.valorRecompensa)}</td>
+                  <td className="px-2 py-2 font-mono text-emerald-700 whitespace-nowrap">{fmtBRL(r.valorLounge)}</td>
+                  <td className="px-2 py-2 font-mono text-emerald-700 whitespace-nowrap">{fmtBRL(r.valorSeguroOutros)}</td>
+                  <td className="px-2 py-2 font-mono whitespace-nowrap">
+                    {r.anuidadePaga > 0 ? (
+                      <span className="text-rose-700">-{fmtBRL(r.anuidadePaga)}</span>
+                    ) : (
+                      <span className="text-stone-400">—</span>
+                    )}
+                  </td>
+                  <td className={`px-2 py-2 font-mono font-semibold whitespace-nowrap ${
+                    r.ganhoTotal >= 0 ? "text-emerald-700" : "text-rose-700"
+                  }`}>
+                    {fmtBRL(r.ganhoTotal)}
+                  </td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+          <p className="text-xs text-stone-400 mt-2">
+            <span className="text-rose-600 font-medium">Em vermelho</span>: cartões que exigem mais investimento do que o seu teto definido nos parâmetros gerais.
+          </p>
         </section>
 
         <p className="text-xs text-stone-400 mt-6">
